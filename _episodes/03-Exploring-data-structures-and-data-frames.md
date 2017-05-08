@@ -4,26 +4,26 @@ keypoints:
 - R's basic data types are character, numeric, integer, complex, and logical.
 - R's basic data structures include the vector, list, matrix, data frame, and factors.
 - Objects may have attributes, such as name, dimension, and class.
-- "Factors are used to represent categorical data."
-- "Factors can be *ordered* or *unordered*."
-- "Some R functions have special methods for handling factors."
+- Factors are used to represent categorical data.
+- Factors can be *ordered* or *unordered*.
+- Some R functions have special methods for handling factors.
 
 objectives:
-- Expose learners to the different data types in R.
-- Learn how to create vectors of different types.
-- Be able to check the type of vector.
+- Introduce different data types in R.
+- Create vectors of different types.
+- Check the type of vector.
 - Learn about missing data and other special values.
-- Getting familiar with the different data structures (lists, matrices, data frames).
-- "Understand how to represent categorical data in R."
-- "Know the difference between ordered and unordered factors."
-- "Be aware of some of the problems encountered when using factors."
+- Understand how to represent categorical data in R.
+- Explain the difference between ordered and unordered factors.
+- Describe some of the problems encountered when using factors.
+- Introduce different data structures (lists, matrices, data frames).
 
 questions:
 - What are the different data types in R?
-- What are the different data structures in R?
+- How is categorical data represented in R?
+- How do I work with factors?
 - How do I access data within the various data structures?
-- "How is categorical data represented in R?"
-- "How do I work with factors?"
+
 teaching: 45
 exercises: 0
 ---
