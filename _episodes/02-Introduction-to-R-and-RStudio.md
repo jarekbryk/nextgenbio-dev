@@ -1,7 +1,9 @@
 ---
 title: "Introduction to R and RStudio"
+
 teaching: 45
 exercises: 15
+
 questions:
 - How to interact with R?
 - How to find your way around RStudio?
@@ -10,15 +12,14 @@ questions:
 - How to get help in R?
 
 objectives:
-- To gain familiarity with the various panes in the RStudio IDE
-- To gain familiarity with the buttons, shortcuts and options in the RStudio IDE
-- To understand variables and how to assign to them
+- To gain familiarity with the various panes, buttons, shortcuts and options in the RStudio IDE
 - To be able to manage your workspace in an interactive R session
+- To be able to install, load and remove packages
+- To be able to read, write, save and load objects
+- To understand variables and how to assign values to them
 - To be able to use mathematical and comparison operations
 - To be able to call functions
-- To be able to read, write, save and load objects
 - To be able read R help files for functions and special operators.
-- To be able to install and remove packages
 - To be able to use CRAN task views to identify packages to solve a problem.
 - To be able to seek help from your peers.
 
@@ -30,12 +31,7 @@ keypoints:
 
 Throughout this lesson, we're going to teach you some of the fundamentals of
 the R language as well as some best practices for organizing code for
-scientific projects that will make your life easier.
-
-We'll be using RStudio: a free, open source R integrated development
-environment. It provides a built in editor, works on all platforms (including
-on servers) and provides many advantages such as integration with version
-control and project management.
+scientific projects that will make your life easier. We will be using RStudio: a free, open source R integrated development environment (IDE). It provides a built in editor, works on all platforms (including on servers) and provides many advantages such as integration with version control and project management. However, it is not necessary to use RStudio to use R, but you have to have R installed first to use RStudio.
 
 **Basic layout**
 
@@ -52,8 +48,8 @@ in the top left.
 
 ![RStudio layout with .R file open](../fig/01-rstudio-script.png)
 
+## Workflow within RStudio
 
-## Work flow within RStudio
 There are two main ways one can work within RStudio.
 
 1. Test and play within the interactive R console then copy code into
@@ -71,14 +67,12 @@ interactive R console.
 >
 > RStudio offers you great flexibility in running code from within the editor
 > window. There are buttons, menu choices, and keyboard shortcuts. To run the
-> current line, you can 1. click on the `Run` button above the editor panel,
-> or 2. select "Run Lines" from the "Code" menu, or 3. hit Ctrl-Enter in Windows
-> or Linux or Command-Enter on OS X. (This shortcut can also be seen by hovering
-> the mouse over the button). To run a block of code, select it and then `Run`.
-> If you have modified a line of code within a block of code you have just run,
-> there is no need to reselct the section and `Run`, you can use the next button
-> along, `Re-run the previous region`. This will run the previous code block
-> including the modifications you have made.
+> current line, you can:
+> 1. click on the `Run` button above the editor panel
+> 2. select "Run Lines" from the "Code" menu
+> 3. hit Ctrl-Enter in Windows and Linux or Command-Enter on OS X. (This shortcut can also be seen by hovering the mouse over the button).
+>
+> To run a block of code, select it and then click `Run`. If you have modified a line of code within a block of code you have just run, there is no need to reselct the section and `Run`, you can use the next button along, `Re-run the previous region`. This will run the previous code block including the modifications you have made.
 {: .callout}
 
 ## Introduction to R
@@ -99,7 +93,6 @@ returns a result.
 ## Using R as a calculator
 
 The simplest thing you could do with R is do arithmetic:
-
 
 ~~~
 1 + 100
@@ -202,8 +195,6 @@ Really small or large numbers get a scientific notation:
 ~~~
 {: .r}
 
-
-
 ~~~
 [1] 2e-04
 ~~~
@@ -214,13 +205,10 @@ is shorthand for `2 * 10^(-4)`.
 
 You can write numbers in scientific notation too:
 
-
 ~~~
 5e3  # Note the lack of minus here
 ~~~
 {: .r}
-
-
 
 ~~~
 [1] 5000
@@ -234,52 +222,40 @@ we simply type its name, followed by  open and closing parentheses.
 Anything we type inside the parentheses is called the function's
 arguments:
 
-
 ~~~
 sin(1)  # trigonometry functions
 ~~~
 {: .r}
-
-
 
 ~~~
 [1] 0.841471
 ~~~
 {: .output}
 
-
 ~~~
 log(1)  # natural logarithm
 ~~~
 {: .r}
-
-
 
 ~~~
 [1] 0
 ~~~
 {: .output}
 
-
 ~~~
 log10(10) # base-10 logarithm
 ~~~
 {: .r}
-
-
 
 ~~~
 [1] 1
 ~~~
 {: .output}
 
-
 ~~~
 exp(0.5) # e^(1/2)
 ~~~
 {: .r}
-
-
 
 ~~~
 [1] 1.648721
@@ -305,78 +281,60 @@ illustrate command usage. We'll go through an example later.
 
 We can also do comparison in R:
 
-
 ~~~
 1 == 1  # equality (note two equals signs, read as "is equal to")
 ~~~
 {: .r}
 
-
-
 ~~~
 [1] TRUE
 ~~~
 {: .output}
-
 
 ~~~
 1 != 2  # inequality (read as "is not equal to")
 ~~~
 {: .r}
 
-
-
 ~~~
 [1] TRUE
 ~~~
 {: .output}
-
 
 ~~~
 1 <  2  # less than
 ~~~
 {: .r}
 
-
-
 ~~~
 [1] TRUE
 ~~~
 {: .output}
-
 
 ~~~
 1 <= 1  # less than or equal to
 ~~~
 {: .r}
 
-
-
 ~~~
 [1] TRUE
 ~~~
 {: .output}
-
 
 ~~~
 1 > 0  # greater than
 ~~~
 {: .r}
 
-
-
 ~~~
 [1] TRUE
 ~~~
 {: .output}
 
-
 ~~~
 1 >= -9 # greater than or equal to
 ~~~
 {: .r}
-
-
 
 ~~~
 [1] TRUE
@@ -407,7 +365,6 @@ We can also do comparison in R:
 
 We can store values in variables using the assignment operator `<-`, like this:
 
-
 ~~~
 x <- 1/40
 ~~~
@@ -416,13 +373,10 @@ x <- 1/40
 Notice that assignment does not print a value. Instead, we stored it for later
 in something called a **variable**. `x` now contains the **value** `0.025`:
 
-
 ~~~
 x
 ~~~
 {: .r}
-
-
 
 ~~~
 [1] 0.025
@@ -432,16 +386,12 @@ x
 More precisely, the stored value is a *decimal approximation* of
 this fraction called a [floating point number](http://en.wikipedia.org/wiki/Floating_point).
 
-Look for the `Environment` tab in one of the panes of RStudio, and you will see that `x` and its value
-have appeared. Our variable `x` can be used in place of a number in any calculation that expects a number:
-
+Look for the `Environment` tab in one of the panes of RStudio, and you will see that `x` and its value have appeared. Our variable `x` can be used in place of a number in any calculation that expects a number:
 
 ~~~
 log(x)
 ~~~
 {: .r}
-
-
 
 ~~~
 [1] -3.688879
@@ -449,7 +399,6 @@ log(x)
 {: .output}
 
 Notice also that variables can be reassigned:
-
 
 ~~~
 x <- 100
@@ -459,7 +408,6 @@ x <- 100
 `x` used to contain the value 0.025 and and now it has the value 100.
 
 Assignment values can contain the variable being assigned to:
-
 
 ~~~
 x <- x + 1 #notice how RStudio updates its description of x on the top right tab
@@ -481,7 +429,6 @@ What you use is up to you, but **be consistent**.
 
 It is also possible to use the `=` operator for assignment:
 
-
 ~~~
 x = 1/40
 ~~~
@@ -492,47 +439,41 @@ But this is much less common among R users.  The most important thing is to
 where it is less confusing to use `<-` than `=`, and it is the most common
 symbol used in the community. So the recommendation is to use `<-`.
 
+> ## Tip: Keyboard shortcut for the assignment operator `<-`
+>
+> To type this operator a bit faster, RStudio has a keyboard shortcut `Alt+-` (Alt + a minus sign). This shortcut also automatically adds spaces around the operator.
+{: .callout}
+
 ## Vectorization
 
 One final thing to be aware of is that R is *vectorized*, meaning that
 variables and functions can have vectors as values. For example
-
 
 ~~~
 1:5
 ~~~
 {: .r}
 
-
-
 ~~~
 [1] 1 2 3 4 5
 ~~~
 {: .output}
-
-
 
 ~~~
 2^(1:5)
 ~~~
 {: .r}
 
-
-
 ~~~
 [1]  2  4  8 16 32
 ~~~
 {: .output}
-
-
 
 ~~~
 x <- 1:5
 2^x
 ~~~
 {: .r}
-
-
 
 ~~~
 [1]  2  4  8 16 32
@@ -542,7 +483,6 @@ x <- 1:5
 This is incredibly powerful; we will discuss this further in an
 upcoming lesson.
 
-
 ## Managing your environment
 
 There are a few useful commands you can use to interact with the R session.
@@ -550,13 +490,10 @@ There are a few useful commands you can use to interact with the R session.
 `ls` will list all of the variables and functions stored in the global environment
 (your working R session):
 
-
 ~~~
 ls()
 ~~~
 {: .r}
-
-
 
 ~~~
 [1] "x" "y"
@@ -576,13 +513,10 @@ needed to give the parentheses to tell R to call the function.
 
 If we type `ls` by itself, R will print out the source code for that function!
 
-
 ~~~
 ls
 ~~~
 {: .r}
-
-
 
 ~~~
 function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE, 
@@ -623,7 +557,6 @@ function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE,
 
 You can use `rm` to delete objects you no longer need:
 
-
 ~~~
 rm(x)
 ~~~
@@ -631,7 +564,6 @@ rm(x)
 
 If you have lots of things in your environment and want to delete all of them,
 you can pass the results of `ls` to the `rm` function:
-
 
 ~~~
 rm(list = ls())
@@ -647,13 +579,10 @@ use the `=` operator!!
 
 If instead we use `<-`, there will be unintended side effects, or you may get an error message:
 
-
 ~~~
 rm(list <- ls())
 ~~~
 {: .r}
-
-
 
 ~~~
 Error in rm(list <- ls()): ... must contain names or character strings
@@ -687,12 +616,59 @@ network). R and RStudio have functionality for managing packages:
 * You can remove a package with `remove.packages("packagename")`
 * You can make a package available for use with `library(packagename)`
 
+## Importing, saving and exporting data
+
+The `read.table` function is used for reading in tabular data stored in a text file where the columns of data of equal length are separated by punctuation characters such as commas (csv = comma-separated values), tabs (tsv = tab-separated values), spaces or newlines. More formally, `read.table` reads in data in a form of a data frame and always returns a data frame.
+
+~~~
+cats <- read.csv(file = "data/feline-data.csv")
+cats
+~~~
+{: .r}
+
+~~~
+    coat weight likes_string
+1 calico    2.1            1
+2  black    5.0            0
+3  tabby    3.2            1
+~~~
+{: .output}
+
+`read.table` has several arguments to tailor for each input. `sep=` argument specifies the delimiting character (e.g. `sep="\t"` if separator is a tab); `header=TRUE` is used if the first line of the input consists of variable names separated by the same separator as the data. Alternatively, `col.names=` specifies a character vector with the variable (columns) names. If neither is supplied, `read.table` will automatically name the variables using a `V` followed by a column number (i.e. V1, V2, V3 etc.).
+
+`read.table` also automatically converts character variables to factors. You will learn about the factors in the next section, but for now remember that if you want to use your variables as simple character strings, you need to supply the argument `stringsAsFactors=FALSE` to `read.table`. More conveniently, `read.table` will treat any `NA` symbol in the data as missing value.
+
+Tabs and commas are the most common punctuation characters used to separate or delimit data points and for convenience, R provides two other versions of `read.table`. These are: `read.csv` for files where the data are separated with commas and `read.delim` for files where the data are separated with tabs.
+
+Just like you can remove objects from the environment with an `rm` function, you can save them with the `save` function. It accepts multiple objects to be savedas arguments and requires a file name of the output, where all those objects will be saved to:
+
+~~~
+save(cats, dogs, parrots, file="mydata.Rdata")
+~~~
+
+Although the extension of the file is not required, _Rdata_ or _rda_ are commonly used. As mentioned before, it is far more important to be consistent in how you name your files than which extension (if any) you use.
+
+`save` also accepts a character vector with the names of objects to be saved using the `list=` argument:
+
+~~~
+save(list=c("cats", "dogs", "parrots"), file="mydata.rda")
+~~~
+
+Once the data is saved, it can be reloaded into R session with the `load` function, whose only argument is the name of the file to be loaded:
+
+~~~
+load("mydata.Rdata")
+~~~
+
+However, it is often useful to save the R object as a ASCII-readable file, for example saving back the `cats` data frame as Excel-readable csv or tsv file. The tool to produce such files from data frames is the function `write.table`. The only required argument to it is the name of a dataframe or matrix, but more usefully the second argument `file=` specifies the file name to be saved. By default, character strings in the saved file will be surrounded by quotes (use `quote=FALSE` to avoid that); you can also specify `sep=` argument to tell which separators you want in the saved file. 
+
+Similar to `read.table`, `write.csv` function is provided with some of the arguments pre-specified to save the output as a comma-separated file.
+
 ## Reading Help files
 
 R, and every package, provide help files for functions. To search for help on a
 function from a specific function that is in a package loaded into your
 namespace (your interactive R session):
-
 
 ~~~
 ?function_name
@@ -726,7 +702,6 @@ Different functions might have different sections, but these are the main ones y
 
 To seek help on special operators, use quotes:
 
-
 ~~~
 ?"+"
 ~~~
@@ -745,7 +720,6 @@ If a package doesn't have any vignettes, you can usually find help by typing
 ## When you kind of remember the function
 
 If you're not sure what package a function is in, or how it's specifically spelled you can do a fuzzy search:
-
 
 ~~~
 ??function_name
@@ -769,7 +743,6 @@ the `[r]` tag.
 If you can't find the answer, there are a few useful functions to
 help you ask a question from your peers:
 
-
 ~~~
 ?dput
 ~~~
@@ -778,13 +751,10 @@ help you ask a question from your peers:
 Will dump the data you're working with into a format so that it can
 be copy and pasted by anyone else into their R session.
 
-
 ~~~
 sessionInfo()
 ~~~
 {: .r}
-
-
 
 ~~~
 R version 3.3.3 (2017-03-06)
@@ -1009,13 +979,15 @@ your issue.
 {: .challenge}
 
 > ## Challenge 8
+>
 > Use help to find a function (and its associated parameters) that you could
 > use to load data from a csv file in which columns are delimited with "\t"
 > (tab) and the decimal point is a "." (period). This check for decimal
 > separator is important, especially if you are working with international
 > colleagues, because different countries have different conventions for the
-> decimal point (i.e. comma vs period).
-> hint: use `??csv` to lookup csv related functions.
+> decimal point (i.e. comma vs period). Hint: use `??csv` to lookup csv related
+> functions.
+>
 > > ## Solution to Challenge 8
 > >
 > > The standard R function for reading tab-delimited files with a period
@@ -1024,7 +996,7 @@ your issue.
 > > separator for `read.table()`, although you may have to change
 > > the `comment.char` argument as well if your data file contains
 > > hash (#) characters
-> {: solution}
+> {: .solution}
 {: .challenge}
 
 ## Other ports of call
@@ -1032,3 +1004,4 @@ your issue.
 * [Quick R](http://www.statmethods.net/)
 * [RStudio cheat sheets](http://www.rstudio.com/resources/cheatsheets/)
 * [Cookbook for R](http://www.cookbook-r.com/)
+* [Stack Overflow](https://stackoverflow.com)

@@ -4,15 +4,14 @@ keypoints:
 - R's basic data types are character, numeric, integer, complex, and logical.
 - R's basic data structures include the vector, list, matrix, data frame, and factors.
 - Objects may have attributes, such as name, dimension, and class.
-- Factors are used to represent categorical data.
-- Factors can be *ordered* or *unordered*.
+- Factors are used to represent categorical data and can be *ordered* or *unordered*.
 - Some R functions have special methods for handling factors.
 
 objectives:
 - Introduce different data types in R.
 - Create vectors of different types.
 - Check the type of vector.
-- Learn about missing data and other special values.
+- Understand missing data and other special values.
 - Understand how to represent categorical data in R.
 - Explain the difference between ordered and unordered factors.
 - Describe some of the problems encountered when using factors.
@@ -28,21 +27,21 @@ teaching: 45
 exercises: 0
 ---
 
+Note that this lesson is based on two chapters from the `r-novice-inflammation` lesson, [http://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures/](http://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures/) and 
+[http://swcarpentry.github.io/r-novice-inflammation/12-supp-factors/](http://swcarpentry.github.io/r-novice-inflammation/12-supp-factors/). I pasted the two together for this chapter.
 
+The other lesson that covers the same topic is `r-novice-gapminder` [http://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1/](http://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1/) and [http://swcarpentry.github.io/r-novice-gapminder/05-data-structures-part2/](http://swcarpentry.github.io/r-novice-gapminder/05-data-structures-part2/). Those chapters are a bit more user friendly but I think the inflammation ones are more thorough (especially on factor). I may try to unify the examples from both lessons later on or we may decide to switch to the simpler (?) gapminder lesson approach.
+
+Also note that this lesson discusses both type and mode of vectors, but does not explain if, why and how the two are different.
 
 ## Understanding Basic Data Types in R
 
 To make the best of the R language, you'll need a strong understanding of the
-basic data types and data structures and how to operate on those.
-
-Very important to understand because these are the objects you will manipulate
-on a day-to-day basis in R. Dealing with object conversions is one of the most
-common sources of frustration for beginners.
+basic data types and data structures and how to operate on those, as these are the objects you will manipulate on a day-to-day basis in R. Dealing with object conversions is one of the most common sources of frustration for beginners.
 
 **Everything** in R is an object.
 
-R has 6 (although we will not discuss the raw class for this workshop) atomic
-vector types.
+R has six atomic vector types (although we will not discuss the raw class for this workshop).
 
 * character
 * numeric (real or decimal)
@@ -50,7 +49,7 @@ vector types.
 * logical
 * complex
 
-By *atomic*, we mean the vector only holds data of a single type.
+By *atomic* we mean the vector only holds data of a single type.
 
 * **character**: `"a"`, `"swc"`
 * **numeric**: `2`, `15.5`
@@ -66,7 +65,6 @@ example
 * `length()` - how long is it? What about two dimensional objects?
 * `attributes()` - does it have any metadata?
 
-
 ~~~
 # Example
 x <- "dataset"
@@ -74,28 +72,20 @@ typeof(x)
 ~~~
 {: .r}
 
-
-
 ~~~
 [1] "character"
 ~~~
 {: .output}
-
-
 
 ~~~
 attributes(x)
 ~~~
 {: .r}
 
-
-
 ~~~
 NULL
 ~~~
 {: .output}
-
-
 
 ~~~
 y <- 1:10
@@ -103,42 +93,30 @@ y
 ~~~
 {: .r}
 
-
-
 ~~~
  [1]  1  2  3  4  5  6  7  8  9 10
 ~~~
 {: .output}
-
-
 
 ~~~
 typeof(y)
 ~~~
 {: .r}
 
-
-
 ~~~
 [1] "integer"
 ~~~
 {: .output}
-
-
 
 ~~~
 length(y)
 ~~~
 {: .r}
 
-
-
 ~~~
 [1] 10
 ~~~
 {: .output}
-
-
 
 ~~~
 z <- as.numeric(y)
@@ -146,30 +124,23 @@ z
 ~~~
 {: .r}
 
-
-
 ~~~
  [1]  1  2  3  4  5  6  7  8  9 10
 ~~~
 {: .output}
-
-
 
 ~~~
 typeof(z)
 ~~~
 {: .r}
 
-
-
 ~~~
 [1] "double"
 ~~~
 {: .output}
 
-R has many __data structures__. These include
+Apart from atomic vector, R has other __data structures__:
 
-* atomic vector
 * list
 * matrix
 * data frame
