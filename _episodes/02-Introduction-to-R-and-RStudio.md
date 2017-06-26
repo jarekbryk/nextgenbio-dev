@@ -26,8 +26,31 @@ objectives:
 keypoints:
 - "First key point"
 ---
+## Table of contents <a name="Top">&nbsp;</a>
 
-## Introduction to RStudio
+Click a link to jump to a section:
+
+- <a name="RStudio">Introduction to RStudio</a>
+- <a name="Workflow">Workflow within RStudio</a>
+- <a name="RIntro">Introduction to R</a>
+- <a name="Rcalculator">Using R as a calculator</a>
+- <a name="Mathfunctions">Mathematical functions</a>
+- <a name="Comparing">Comparing things</a>
+- <a name="Variables">Variables and assignment</a>
+- <a name="Vectorization">Vectorization</a>
+- <a name="Environment">Managing your environment</a>
+- <a name="Data">Importing, saving and exporting data</a>
+- <a name="RPackages">R Packages</a>
+- <a name="Help">Reading Help files</a>
+- <a name="Operators">Special Operators</a>
+- <a name="Packageshelp">Getting help on packages</a>
+- <a name="Kindof">When you kind of remember the function</a>
+- <a name="Noidea">When you have no idea where to begin</a>
+- [When your code doesn't work: seeking help from your peers](#Peers)
+- [Challenges](#Challenges)
+- [Other ports of call](#Otherhelp)
+
+## <a name="RStudio">Introduction to RStudio</a>
 
 Throughout this lesson, we're going to teach you some of the fundamentals of
 the R language as well as some best practices for organizing code for
@@ -48,7 +71,7 @@ in the top left.
 
 ![RStudio layout with .R file open](../fig/01-rstudio-script.png)
 
-## Workflow within RStudio
+### <a name="Workflow">Workflow within RStudio</a> [&#10514;](#Top)
 
 There are two main ways one can work within RStudio.
 
@@ -75,7 +98,7 @@ interactive R console.
 > To run a block of code, select it and then click `Run`. If you have modified a line of code within a block of code you have just run, there is no need to reselct the section and `Run`, you can use the next button along, `Re-run the previous region`. This will run the previous code block including the modifications you have made.
 {: .callout}
 
-## Introduction to R
+## <a name="RIntro">Introduction to R</a> [&#10514;](#Top)
 
 Much of your time in R will be spent in the R interactive
 console. This is where you will run all of your code, and can be a
@@ -90,7 +113,7 @@ shell lessons: it operates on the same idea of a "Read, evaluate,
 print loop": you type in commands, R tries to execute them, and then
 returns a result.
 
-## Using R as a calculator
+### <a name="Rcalculator">Using R as a calculator</a> [&#10514;](#Top)
 
 The simplest thing you could do with R is do arithmetic:
 
@@ -215,7 +238,7 @@ You can write numbers in scientific notation too:
 ~~~
 {: .output}
 
-## Mathematical functions
+### <a name="Mathfunctions">Mathematical functions</a> [&#10514;](#Top)
 
 R has many built in mathematical functions. To call a function,
 we simply type its name, followed by  open and closing parentheses.
@@ -277,7 +300,7 @@ the command and how it works, scrolling to the bottom of the
 help page will usually show a collection of code examples which
 illustrate command usage. We'll go through an example later.
 
-## Comparing things
+### <a name="Comparing">Comparing things</a> [&#10514;](#Top)
 
 We can also do comparison in R:
 
@@ -361,7 +384,7 @@ We can also do comparison in R:
 >
 {: .callout}
 
-## Variables and assignment
+### <a name="Variables">Variables and assignment</a> [&#10514;](#Top)
 
 We can store values in variables using the assignment operator `<-`, like this:
 
@@ -444,7 +467,7 @@ symbol used in the community. So the recommendation is to use `<-`.
 > To type this operator a bit faster, RStudio has a keyboard shortcut `Alt+-` (Alt + a minus sign). This shortcut also automatically adds spaces around the operator.
 {: .callout}
 
-## Vectorization
+### <a name="Vectorization">Vectorization</a> [&#10514;](#Top)
 
 One final thing to be aware of is that R is *vectorized*, meaning that
 variables and functions can have vectors as values. For example
@@ -483,7 +506,7 @@ x <- 1:5
 This is incredibly powerful; we will discuss this further in an
 upcoming lesson.
 
-## Managing your environment
+## <a name="Environment">Managing your environment</a> [&#10514;](#Top)
 
 There are a few useful commands you can use to interact with the R session.
 
@@ -601,22 +624,7 @@ Error in rm(list <- ls()): ... must contain names or character strings
 >
 {: .callout}
 
-## R Packages
-
-It is possible to add functions to R by writing a package, or by
-obtaining a package written by someone else. As of this writing, there
-are over 10,000 packages available on CRAN (the comprehensive R archive
-network). R and RStudio have functionality for managing packages:
-
-* You can see what packages are installed by typing
-  `installed.packages()`
-* You can install packages by typing `install.packages("packagename")`,
-  where `packagename` is the package name, in quotes.
-* You can update installed packages by typing `update.packages()`
-* You can remove a package with `remove.packages("packagename")`
-* You can make a package available for use with `library(packagename)`
-
-## Importing, saving and exporting data
+### <a name="Data">Importing, saving and exporting data</a> [&#10514;](#Top)
 
 The `read.table` function is used for reading in tabular data stored in a text file where the columns of data of equal length are separated by punctuation characters such as commas (csv = comma-separated values), tabs (tsv = tab-separated values), spaces or newlines. More formally, `read.table` reads in data in a form of a data frame and always returns a data frame.
 
@@ -664,7 +672,22 @@ However, it is often useful to save the R object as a ASCII-readable file, for e
 
 Similar to `read.table`, `write.csv` function is provided with some of the arguments pre-specified to save the output as a comma-separated file.
 
-## Reading Help files
+## <a name="RPackages">R Packages</a> [&#10514;](#Top)
+
+It is possible to add functions to R by writing a package, or by
+obtaining a package written by someone else. As of this writing, there
+are over 10,000 packages available on CRAN (the comprehensive R archive
+network). R and RStudio have functionality for managing packages:
+
+* You can see what packages are installed by typing
+  `installed.packages()`
+* You can install packages by typing `install.packages("packagename")`,
+  where `packagename` is the package name, in quotes.
+* You can update installed packages by typing `update.packages()`
+* You can remove a package with `remove.packages("packagename")`
+* You can make a package available for use with `library(packagename)`
+
+## <a name="Help">Reading Help files</a> [&#10514;](#Top)
 
 R, and every package, provide help files for functions. To search for help on a
 function from a specific function that is in a package loaded into your
@@ -690,7 +713,7 @@ Each help page is broken down into sections:
 
 Different functions might have different sections, but these are the main ones you should be aware of.
 
-> ## Tip: Reading help files
+> ## Tip: Reading help files [&#10514;](#Top)
 >
 > One of the most daunting aspects of R is the large number of functions
 > available. It would be prohibitive, if not impossible to remember the
@@ -698,7 +721,7 @@ Different functions might have different sections, but these are the main ones y
 > mean you don't have to!
 {: .callout}
 
-## Special Operators
+### <a name="Operators">Special Operators</a> [&#10514;](#Top)
 
 To seek help on special operators, use quotes:
 
@@ -707,7 +730,7 @@ To seek help on special operators, use quotes:
 ~~~
 {: .r}
 
-## Getting help on packages
+### <a name="Packageshelp">Getting help on packages</a> [&#10514;](#Top)
 
 Many packages come with "vignettes": tutorials and extended example documentation.
 Without any arguments, `vignette()` will list all vignettes for all installed packages;
@@ -717,7 +740,7 @@ Without any arguments, `vignette()` will list all vignettes for all installed pa
 If a package doesn't have any vignettes, you can usually find help by typing
 `help("package-name")`.
 
-## When you kind of remember the function
+### <a name="Kindof">When you kind of remember the function</a> [&#10514;](#Top)
 
 If you're not sure what package a function is in, or how it's specifically spelled you can do a fuzzy search:
 
@@ -726,14 +749,14 @@ If you're not sure what package a function is in, or how it's specifically spell
 ~~~
 {: .r}
 
-## When you have no idea where to begin
+### <a name="Noidea">When you have no idea where to begin</a> [&#10514;](#Top)
 
 If you don't know what function or package you need to use
 [CRAN Task Views](http://cran.at.r-project.org/web/views)
 is a specially maintained list of packages grouped into
 fields. This can be a good starting point.
 
-## When your code doesn't work: seeking help from your peers
+### <a name="Peers">When your code doesn't work: seeking help from your peers</a> [&#10514;](#Top)
 
 If you're having trouble using a function, 9 times out of 10,
 the answers you are seeking have already been answered on
@@ -778,6 +801,15 @@ loaded via a namespace (and not attached):
 Will print out your current version of R, as well as any packages you
 have loaded. This can be useful for others to help reproduce and debug
 your issue.
+
+### <a name="Otherhelp">Other ports of call</a> [&#10514;](#Top)
+
+* [Quick R](http://www.statmethods.net/)
+* [RStudio cheat sheets](http://www.rstudio.com/resources/cheatsheets/)
+* [Cookbook for R](http://www.cookbook-r.com/)
+* [Stack Overflow](https://stackoverflow.com)
+
+## <a name="Challenges">Challenges</a> [&#10514;](#Top)
 
 > ## Challenge 1
 >
@@ -999,9 +1031,3 @@ your issue.
 > {: .solution}
 {: .challenge}
 
-## Other ports of call
-
-* [Quick R](http://www.statmethods.net/)
-* [RStudio cheat sheets](http://www.rstudio.com/resources/cheatsheets/)
-* [Cookbook for R](http://www.cookbook-r.com/)
-* [Stack Overflow](https://stackoverflow.com)
