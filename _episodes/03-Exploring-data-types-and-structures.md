@@ -26,13 +26,33 @@ questions:
 teaching: 45
 exercises: 0
 ---
-
 Note that this lesson is based on two chapters from the `r-novice-inflammation` lesson, [http://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures/](http://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures/) and 
-[http://swcarpentry.github.io/r-novice-inflammation/12-supp-factors/](http://swcarpentry.github.io/r-novice-inflammation/12-supp-factors/). I pasted the two together for this chapter.
+[http://swcarpentry.github.io/r-novice-inflammation/12-supp-factors/](http://swcarpentry.github.io/r-novice-inflammation/12-supp-factors/). I combined the two together for this chapter.
 
-The other lesson that covers the same topic is `r-novice-gapminder` [http://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1/](http://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1/) and [http://swcarpentry.github.io/r-novice-gapminder/05-data-structures-part2/](http://swcarpentry.github.io/r-novice-gapminder/05-data-structures-part2/). Those chapters are a bit more user friendly but I think the inflammation ones are more thorough (especially on factor). I may try to unify the examples from both lessons later on or we may decide to switch to the simpler (?) gapminder lesson approach.
+The other lesson that covers the same topic is `r-novice-gapminder` [http://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1/](http://swcarpentry.github.io/r-novice-gapminder/04-data-structures-part1/) and [http://swcarpentry.github.io/r-novice-gapminder/05-data-structures-part2/](http://swcarpentry.github.io/r-novice-gapminder/05-data-structures-part2/). Those chapters are a bit more user friendly but I think the inflammation ones are more thorough (especially on factors). I may try to unify the examples from both lessons later on or we may decide to switch to the simpler (?) gapminder lesson approach.
 
 Also note that this lesson discusses both type and mode of vectors, but does not explain if, why and how the two are different.
+
+## Table of contents <a name="Top">&nbsp;</a>
+
+Click a link to jump to a section:
+
+- [Understanding Basic Data Types in R](#basic)
+- [Atomic Vectors](#atomic)
+- [The Different Vector Modes](#vectormodes)
+- [Examining Vectors](#vectors)
+- [Adding Elements](#adding)
+- [Vectors from a Sequence of Numbers](#sequence)
+- [Missing Data](#missing)
+- [Other Special Values](#special)
+- [What Happens When You Mix Types Inside a Vector?](#mixeddata)
+- [Objects Attributes](#attributes)
+- [Factors](#factors)
+- [Converting Factors](#converting)
+- [Using Factors](#using)
+- [Removing Levels from a Factor](#levels)
+- [Matrix](#matrix)
+- [List](#list)
 
 ## Understanding Basic Data Types in R
 
@@ -146,7 +166,7 @@ Apart from atomic vector, R has other __data structures__:
 * data frame
 * factors
 
-## Atomic Vectors
+## <a name="atomic">Atomic Vectors</a> [&#10514;](#Top)
 
 A vector is the most common and basic data structure in R and is pretty much the
 workhorse of R. Technically, vectors can be one of two types:
@@ -156,7 +176,7 @@ workhorse of R. Technically, vectors can be one of two types:
 
 although the term "vector" most commonly refers to the atomic types not to lists.
 
-### The Different Vector Modes
+### <a name="vectormodes">The Different Vector Modes</a> [&#10514;](#Top)
 
 A vector is a collection of elements that are most commonly of mode `character`,
 `logical`, `integer` or `numeric`.
@@ -270,7 +290,7 @@ z <- c("Sarah", "Tracy", "Jon")
 ~~~
 {: .r}
 
-### Examining Vectors
+### <a name="vectors">Examining Vectors</a> [&#10514;](#Top)
 
 The functions `typeof()`, `length()`, `class()` and `str()` provide useful
 information about your vectors and R objects in general.
@@ -335,7 +355,7 @@ str(z)
 > Do you see a property that's common to all these vectors above?
 {: .challenge}
 
-### Adding Elements
+### <a name="adding">Adding Elements</a> [&#10514;](#Top)
 
 The function `c()` (for combine) can also be used to add elements to a vector.
 
@@ -368,7 +388,7 @@ z
 ~~~
 {: .output}
 
-### Vectors from a Sequence of Numbers
+### <a name="sequence">Vectors from a Sequence of Numbers</a> [&#10514;](#Top)
 
 You can create vectors as a sequence of numbers.
 
@@ -406,7 +426,7 @@ seq(from = 1, to = 10, by = 0.1)
 ~~~
 {: .output}
 
-### Missing Data
+### <a name="#missing">Missing Data</a> [&#10514;](#Top)
 
 R supports missing data in vectors. They are represented as `NA` (Not Available)
 and can be used for all the vector types covered in this lesson:
@@ -481,7 +501,7 @@ anyNA(y)
 ~~~
 {: .output}
 
-### Other Special Values
+### <a name="special">Other Special Values</a> [&#10514;](#Top)
 
 `Inf` is infinity. You can have either positive or negative infinity.
 
@@ -513,7 +533,7 @@ anyNA(y)
 ~~~
 {: .output}
 
-### What Happens When You Mix Types Inside a Vector?
+### <a name="mixeddata">What Happens When You Mix Types Inside vector?</a> [&#10514;](#Top)
 
 R will create a resulting vector with a mode that can most easily accommodate
 all the elements it contains. This conversion between modes of storage is called
@@ -559,7 +579,7 @@ as.character(1:2)
 ~~~
 {: .output}
 
-### Objects Attributes
+### <a name="attributes">Objects Attributes</a> [&#10514;](#Top)
 
 Objects can have __attributes__. Attributes are part of the object. These include:
 
@@ -606,7 +626,7 @@ nchar("Software Carpentry")
 
 
 
-## Factors
+## <a name="factors">Factors</a> [&#10514;](#Top)
 
 Factors are used to represent categorical data. Factors can be ordered or
 unordered and are an important class for statistical analysis and for plotting.
@@ -765,7 +785,7 @@ information built in. It is particularly helpful when there are many levels
 > d) exercise <- factor(c("l", "n", "n", "i", "l"), levels = c("n", "l", "i"), ordered = TRUE)
 {: .challenge}
 
-###  Converting Factors
+### <a name="converting">Converting Factors</a> [&#10514;](#Top)
 
 Converting from a factor to a number can cause problems:
 
@@ -809,7 +829,7 @@ f <- as.numeric(f)
 ~~~
 {: .r}
 
-### Using Factors
+### <a name="using">Using Factors</a> [&#10514;](#Top)
 
 Lets load our example data to see the use of factors:
 
@@ -916,7 +936,7 @@ Notice the `summary()` function handles factors differently to numbers (and stri
 > Use the `factor()` command to modify the column dat$Group so that the *control* group is plotted last
 {: .challenge}
 
-### Removing Levels from a Factor
+### <a name="levels">Removing Levels from a Factor</a> [&#10514;](#Top)
 
 Some of the Gender values in our dataset have been coded incorrectly.
 Let's remove factors.
@@ -996,7 +1016,7 @@ plot(x = dat$Gender, y = dat$BloodPressure)
 
 
 
-## Matrix
+## <a name="matrix">Matrix</a> [&#10514;](#Top)
 
 In R matrices are an extension of the numeric or character vectors. They are not
 a separate type of object but simply an atomic vector with dimensions; the
@@ -1128,7 +1148,7 @@ mdat[2,3]
 
 
 
-## List
+## <a name="list">List</a> [&#10514;](#Top)
 
 In R lists act as containers. Unlike atomic vectors, the contents of a list are
 not restricted to a single mode and can encompass any mixture of data
